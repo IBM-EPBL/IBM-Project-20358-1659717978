@@ -1,0 +1,19 @@
+import RPi.GPIO as GPIO     // importing function
+import time
+import random
+import datetime
+
+GPIO.setmode(GPIO.BCM)     // to refer the pins number of Broadcom soc channel 
+GPIO.setwarning(false)     // to avoid warning messages
+BUZZER = 23                // buzzer pin = 23
+buzzerstate = False        // just intializing the buzzer is in OFF state as of now
+Threshold = int(input("Enter the tolerance temperature"))
+nov = datetime.datetime.nov()
+GPIO.setup(BUZZER,GPIO.OUT)
+
+while True:
+	if(random.uniform(0,Threshold+10)>=Threshold):      // adding +10 to threshold done for purpose to reach temp above threshold
+		buzzstate = not buzzstate                   // ON the buzzer
+		GPIO.output(BUZZER,buzzstate)
+		print("Temperature crosses the threshold on ",nov.strftime("%d-%m-%y),"at",nov.strftime("%H:%M"))      // strftime - converting to string format
+		time.sleep(1)       // Giving an delay of 1 sec
