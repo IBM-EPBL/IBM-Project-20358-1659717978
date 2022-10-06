@@ -1,0 +1,21 @@
+import RPI.GPIO as GPIO
+import time
+GPIO.setmode(GPIO.BOARD)
+GPIO.setwarnings(False)
+ledRed = 22
+ledyellow = 27
+ledgreen = 17
+
+while True:
+	GPIO.output(ledRed, GPIO.HIGH)
+	time.sleep(20)
+	GPIO.output(ledRed, GPIO.LOW)
+	time.sleep(1)
+	GPIO.output(ledYellow, GPIO.HIGH)
+	time.sleep(20)
+	GPIO.output(ledYellow, GPIO.LOW)
+	time.sleep(1)
+	GPIO.output(ledGreen, GPIO.HIGH)
+	time.sleep(20)
+	GPIO.output(ledGreen, GPIO.LOW)
+	time.sleep(1)
